@@ -1,3 +1,4 @@
+::OLD
 @echo off
 cls
 set PvP_Buckup=\PvP_Saves
@@ -25,3 +26,4 @@ copy %PvP_Buckup%\PvP.ini %ZB_Server%\PvP.ini /Y
 copy %PvP_Buckup%\PvP_SandboxVars.lua %ZB_Server%\PvP_SandboxVars.lua /Y
 copy %PvP_Buckup%\PvP_spawnregions.lua %ZB_Server%\PvP_spawnregions.lua /Y
 :end
+::OLD
