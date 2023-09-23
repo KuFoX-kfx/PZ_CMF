@@ -1,8 +1,8 @@
 @echo off
 cls
-set PvP_Buckup=C:\Users\KuFoX\Desktop\MegaBatnik\PvP_Saves
-set ZB_Server=C:\Users\KuFoX\Desktop\MegaBatnik\zomboid\server
-set ZB_Multiplayer=C:\Users\KuFoX\Desktop\MegaBatnik\zomboid\saves\multiplayer
+set PvP_Buckup=\PvP_Saves
+set ZB_Server=\zomboid\server
+set ZB_Multiplayer=\zomboid\saves\multiplayer
 echo Check all path to files
 echo:
 echo Folder with your buckup files
