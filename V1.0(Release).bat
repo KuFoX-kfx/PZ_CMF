@@ -63,16 +63,16 @@ set /p "Patch=Enter patch to `\SAVE` folder: "
 reg add "HKCU\Software\KuFoX\PZCMF" /v BCKP_Save /t REG_EXPAND_SZ /d %Patch% /f
 Goto Menu
 :RPLC_SAVEtoPZ
-xcopy %PvP_Buckup%\PvP %ZB_Multiplayer%\PvP /EYI
-xcopy %PvP_Buckup%\PvP_player %ZB_Multiplayer%\PvP_player /EYI
-copy %PvP_Buckup%\PvP.ini %ZB_Server%\PvP.ini /Y
-copy %PvP_Buckup%\PvP_SandboxVars.lua %ZB_Server%\PvP_SandboxVars.lua /Y
-copy %PvP_Buckup%\PvP_spawnregions.lua %ZB_Server%\PvP_spawnregions.lua /Y
+xcopy %BCKP_Save%\PvP %ZB_Multiplayer%\PvP /EYI
+xcopy %BCKP_Save%\PvP_player %ZB_Multiplayer%\PvP_player /EYI
+copy %BCKP_Save%\PvP.ini %ZB_Server%\PvP.ini /Y
+copy %BCKP_Save%\PvP_SandboxVars.lua %ZB_Server%\PvP_SandboxVars.lua /Y
+copy %BCKP_Save%\PvP_spawnregions.lua %ZB_Server%\PvP_spawnregions.lua /Y
 Goto Menu
 :RPLC_PZtoSAVE
-xcopy %ZB_Multiplayer%\PvP /EYI %PvP_Buckup%\PvP
-xcopy %ZB_Multiplayer%\PvP_player /EYI %PvP_Buckup%\PvP_player
-copy %ZB_Server%\PvP.ini /Y %PvP_Buckup%\PvP.ini
-copy %ZB_Server%\PvP_SandboxVars.lua /Y %PvP_Buckup%\PvP_SandboxVars.lua
-copy %ZB_Server%\PvP_spawnregions.lua /Y %PvP_Buckup%\PvP_spawnregions.lua
+xcopy %ZB_Multiplayer%\PvP /EYI %BCKP_Save%\PvP
+xcopy %ZB_Multiplayer%\PvP_player /EYI %BCKP_Save%\PvP_player
+copy %ZB_Server%\PvP.ini /Y %BCKP_Save%\PvP.ini
+copy %ZB_Server%\PvP_SandboxVars.lua /Y %BCKP_Save%\PvP_SandboxVars.lua
+copy %ZB_Server%\PvP_spawnregions.lua /Y %BCKP_Save%\PvP_spawnregions.lua
 Goto Menu
