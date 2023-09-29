@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>450</width>
-    <height>110</height>
+    <height>131</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>PZ_CMF_By-KuFoX</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="LBL_1">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -30,7 +30,7 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="CMBox_Profile">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -40,7 +40,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="Line" name="line">
+   <widget class="Line" name="LN">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -53,7 +53,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="PSHBTN_Create">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -62,11 +62,14 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Create new profile</string>
+    </property>
     <property name="text">
      <string>Create</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="PSHBTN_Save">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -75,11 +78,14 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Save current profile</string>
+    </property>
     <property name="text">
      <string>Save</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="PSHBTN_Delete">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -88,11 +94,14 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Delete current profile</string>
+    </property>
     <property name="text">
      <string>Delete</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="LBL_2">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -108,7 +117,7 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="LNEdit_PTYSG">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -118,7 +127,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="PSHBTN_SPSG">
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -134,7 +143,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="LBL_3">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -150,7 +159,7 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="PSHBTN_SPYG">
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -166,7 +175,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="LNEdit_PTYG">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -177,6 +186,105 @@
     </property>
    </widget>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>450</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <widget class="QMenu" name="Menu_MOSYP">
+     <property name="title">
+      <string>Method of save your profiles</string>
+     </property>
+     <addaction name="ACT_DBFile"/>
+     <addaction name="ACT_RGDT_MOSYP"/>
+    </widget>
+    <widget class="QMenu" name="Menu_MSOYS">
+     <property name="title">
+      <string>Method of save settings</string>
+     </property>
+     <addaction name="ACT_ConfigFile"/>
+     <addaction name="ACT_RGDT_MSOYS"/>
+    </widget>
+    <widget class="QMenu" name="Menu_lang">
+     <property name="title">
+      <string>Language</string>
+     </property>
+     <addaction name="ACT_EN"/>
+     <addaction name="ACT_RU"/>
+    </widget>
+    <addaction name="separator"/>
+    <addaction name="Menu_MOSYP"/>
+    <addaction name="Menu_MSOYS"/>
+    <addaction name="separator"/>
+    <addaction name="Menu_lang"/>
+   </widget>
+   <addaction name="menuSettings"/>
+  </widget>
+  <action name="ACT_DBFile">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>DataBase File (Recommended)</string>
+   </property>
+  </action>
+  <action name="ACT_RGDT_MOSYP">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Regedit (Not recommended)</string>
+   </property>
+  </action>
+  <action name="ACT_ConfigFile">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Config file (Recommended)</string>
+   </property>
+  </action>
+  <action name="ACT_RGDT_MSOYS">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Regedit (Not recommended)</string>
+   </property>
+  </action>
+  <action name="ACT_EN">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>EN_English</string>
+   </property>
+  </action>
+  <action name="ACT_RU">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>RU_Русский</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
