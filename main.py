@@ -10,11 +10,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QThread
 import sys
-from GUI_main import Ui_main
+from GUI_main import Ui_Main
 
 app = QtWidgets.QApplication(sys.argv)
 MAIN = QtWidgets.QMainWindow()
-ui = Ui_main()
+ui = Ui_Main()
 ui.setupUi(MAIN)
 MAIN.show()
 
