@@ -45,14 +45,19 @@ class DBM:
         except Exception as ex:
             print(ex)
 
-"""    def CreateDBProfiles(self):
+
+
+
+
+
+    def CreateDBProfiles(self):
         with self.connection:
             self.cursor.execute(
-    "CREATE TABLE profiles (
+    """CREATE TABLE profiles (
     ID   INTEGER PRIMARY KEY AUTOINCREMENT,
     Name STRING,
     PGF  STRING,
     PSF  STRING
     );
-    ")
-"""
+    """)
+
