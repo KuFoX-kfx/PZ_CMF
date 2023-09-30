@@ -36,7 +36,10 @@ msgBox.setWindowTitle("PZ-CMF")
 msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
 msgBox.setDefaultButton(QMessageBox.No)
 msgBox.setEscapeButton(QMessageBox.No)
+
 DBS = 0
+CFS = 0
+OFS = 0
 
 
 
@@ -46,9 +49,16 @@ def AddAllProfiles():
         check()
     else:
         ui_main.CMBox_Profile.addItems(list(map(str, db.GetProfilesName())))
+        
+def CeateProfileUI():
+    MAIN.setEnabled(0)
+    CRT.exec()
+    MAIN.setEnabled(1)
 
 def check():
     global DBS
+    global CFS
+    global OFS
     DBS = db.CheckConnect()
     ui_main.PRGRSBR_DBF.setValue(DBS)
     if DBS == 0:
@@ -59,11 +69,12 @@ def check():
 
 
 
-AddAllProfiles()
 
 
 
 
+ui_main.PSHBTN_Create.clicked.connect(CeateProfileUI)
 ui_main.PSHBTN_Load.clicked.connect(AddAllProfiles)
-
+check()
+AddAllProfiles()
 sys.exit(app.exec_())
