@@ -11,6 +11,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QThread
 import sys
 from GUI_main import Ui_Main
+from DBM import DBM
+db = DBM('Profiles.db')
 
 app = QtWidgets.QApplication(sys.argv)
 MAIN = QtWidgets.QMainWindow()
@@ -18,8 +20,11 @@ ui = Ui_Main()
 ui.setupUi(MAIN)
 MAIN.show()
 
-
-
+def check():
+    ui.PRGRSBR_DBF.setValue(db.CheckConnect())
+    
+    
+check()
 
 
 
