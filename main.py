@@ -24,11 +24,9 @@ MAIN.show()
 
 #MessageBox init
 msgBox = QMessageBox()
-#msgBox.setText()
+msgBox.setText("You really want???")
 msgBox.setWindowTitle("PZ-CMF")
 msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-msgBox.setDefaultButton(QMessageBox.No)
-msgBox.setEscapeButton(QMessageBox.No)
 
 DBS = 0
 CFS = 0
@@ -45,7 +43,13 @@ def LoadAllProfiles():
         ui_main.CMBox_Profile.addItems(list(map(str, db.GetProfilesName(1))))
     
 def CreateDBFile():
-    db.CreateDBProfiles()
+    try:
+        db.CreateDBProfiles()
+        msgBox.setText("Successful create DataBase File!")
+        msgBox.exec()
+    except:
+        msgBox.setText("Error when creating Database File!!!")
+        msgBox.exec()
 
 def check():
     global DBS
@@ -54,20 +58,33 @@ def check():
     DBS = db.CheckConnect()
     ui_main.PRGRSBR_DBF.setValue(DBS)
     if DBS == 0:
-        if msgBox.exec_() == QMessageBox.Yes:
-            db.CreateDBProfiles()
+        db.CreateDBProfiles()
+
+def DeleteProfile():
+    ret = msgBox.exec_()
+    if ret == QMessageBox.No:
+        pass
+    elif ret == QMessageBox.Yes:
+        db.DeleteProfile(ui_main.CMBox_Profile.currentText())
+        LoadAllProfiles()
 
 def SaveProfile():
-    if ui_CRT.LNEdit_PN.displayText() != "" and ui_CRT.LNEdit_PTYG.displayText != "" and ui_CRT.LNEdit_PTYSG.displayText() != "":
-        db.CreateProfile(ui_CRT.LNEdit_PN.displayText(), ui_CRT.LNEdit_PTYG.displayText(), ui_CRT.LNEdit_PTYSG.displayText())
-    ui_CRT.LNEdit_PN.clear()
-    ui_CRT.LNEdit_PTYG.clear()
-    ui_CRT.LNEdit_PTYSG.clear()
-    LoadAllProfiles()
+    try:
+        if ui_CRT.LNEdit_PN.displayText() != "" and ui_CRT.LNEdit_PTYG.displayText != "" and ui_CRT.LNEdit_PTYSG.displayText() != "":
+            db.CreateProfile(ui_CRT.LNEdit_PN.displayText(), ui_CRT.LNEdit_PTYG.displayText(), ui_CRT.LNEdit_PTYSG.displayText())
+            msgBox.setText("Successful Save!")
+            msgBox.exec()
+        ui_CRT.LNEdit_PN.clear()
+        ui_CRT.LNEdit_PTYG.clear()
+        ui_CRT.LNEdit_PTYSG.clear()
+        LoadAllProfiles()
+    except:
+        msgBox.setText("Error when save profile!!!")
+        msgBox.exec()
 
 
 
-
+ui_main.PSHBTN_Delete.clicked.connect(DeleteProfile)
 ui_CRT.BTNBOX.accepted.connect(SaveProfile)
 ui_CRT.PSHBTN_SYSG.clicked.connect(lambda: ui_CRT.LNEdit_PTYSG.setText(QtWidgets.QFileDialog.getExistingDirectory()))
 ui_CRT.PSHBTN_SYG.clicked.connect(lambda: ui_CRT.LNEdit_PTYG.setText(QtWidgets.QFileDialog.getExistingDirectory()))

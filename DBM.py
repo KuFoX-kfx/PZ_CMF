@@ -49,18 +49,34 @@ class DBM:
         with self.connection:
             return self.cursor.execute("INSERT INTO `profiles` (`Name`, `PGF`, `PSF`) values(?,?,?)", (Name, PGF, PSF))
 
+    def DeleteProfile(self, Name):
+        try:
+            with self.connection:
+                self.cursor.execute("delete from profiles where Name = ?", (Name,))
+        except Error as er:
+            print(er)
+        except Exception as ex:
+            print(ex)
+        
+
 
 
 
     def CreateDBProfiles(self):
         with self.connection:
             self.cursor.execute(
-"""
-    CREATE TABLE profiles (
-    ID   INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name STRING  UNIQUE ON CONFLICT REPLACE,
-    PGF  STRING,
-    PSF  STRING
-    );
+"""CREATE TABLE IF NOT EXISTS profiles (
+ID   INTEGER PRIMARY KEY AUTOINCREMENT,
+Name STRING UNIQUE ON CONFLICT REPLACE,
+PGF  STRING,
+PSF  STRING
+);
 """)
+        #self.connection.commit()
+        #except Error as er:
+        #    print("CreateDBProfiles" + str(er))
+        #except Exception as ex:
+        #    print("CreateDBProfiles" + str(ex))
+            
+        
 
