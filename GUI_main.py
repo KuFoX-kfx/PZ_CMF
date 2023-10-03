@@ -14,7 +14,16 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Main(object):
     def setupUi(self, Main):
         Main.setObjectName("Main")
+        Main.setWindowModality(QtCore.Qt.WindowModal)
+        Main.setEnabled(True)
         Main.resize(400, 130)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(Main.sizePolicy().hasHeightForWidth())
+        Main.setSizePolicy(sizePolicy)
+        Main.setMinimumSize(QtCore.QSize(400, 130))
+        Main.setMaximumSize(QtCore.QSize(400, 130))
         self.centralwidget = QtWidgets.QWidget(Main)
         self.centralwidget.setObjectName("centralwidget")
         self.LBL_1 = QtWidgets.QLabel(self.centralwidget)
@@ -205,13 +214,3 @@ class Ui_Main(object):
         self.ACT_RU.setText(_translate("Main", "RU_Русский"))
         self.ACT_CreateDBF.setText(_translate("Main", "Create"))
         self.ACT_CreateCF.setText(_translate("Main", "Create"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Main = QtWidgets.QMainWindow()
-    ui = Ui_Main()
-    ui.setupUi(Main)
-    Main.show()
-    sys.exit(app.exec_())
