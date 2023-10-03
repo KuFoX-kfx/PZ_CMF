@@ -23,15 +23,8 @@ MAIN.show()
 
 
 #MessageBox init
-msg = QMessageBox()
-msg.setIcon(QMessageBox.Critical)
-msg.setText("Error")
-msg.setInformativeText("LOL")
-msg.setWindowTitle("Error")
-msg.setStandardButtons(QMessageBox.Ok)
-
 msgBox = QMessageBox()
-msgBox.setText("You want create DB or Config file?")
+#msgBox.setText()
 msgBox.setWindowTitle("PZ-CMF")
 msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
 msgBox.setDefaultButton(QMessageBox.No)
@@ -48,11 +41,8 @@ def LoadAllProfiles():
     if DBS == 0:
         check()
     else:
-        try:
-            ui_main.CMBox_Profile.clear()
-        except:
-            pass
-        ui_main.CMBox_Profile.addItems(list(map(str, db.GetProfilesName())))
+        ui_main.CMBox_Profile.clear()
+        ui_main.CMBox_Profile.addItems(list(map(str, db.GetProfilesName(1))))
     
 def CreateDBFile():
     db.CreateDBProfiles()
@@ -67,22 +57,20 @@ def check():
         if msgBox.exec_() == QMessageBox.Yes:
             db.CreateDBProfiles()
 
-def SelectSaveGame():
-    ui_CRT.LNEdit_PTYSG.setText(QtWidgets.QFileDialog.getExistingDirectory())
-
-def SelectFolderGame():
-    ui_CRT.LNEdit_PTYG.setText(QtWidgets.QFileDialog.getExistingDirectory())
-
-
-
-
-
-ui_CRT.BTNBOX.accepted.connect(lambda: print("123"))
-ui_CRT.BTNBOX.rejected.connect(lambda: print("123123"))
+def SaveProfile():
+    if ui_CRT.LNEdit_PN.displayText() != "" and ui_CRT.LNEdit_PTYG.displayText != "" and ui_CRT.LNEdit_PTYSG.displayText() != "":
+        db.CreateProfile(ui_CRT.LNEdit_PN.displayText(), ui_CRT.LNEdit_PTYG.displayText(), ui_CRT.LNEdit_PTYSG.displayText())
+    ui_CRT.LNEdit_PN.clear()
+    ui_CRT.LNEdit_PTYG.clear()
+    ui_CRT.LNEdit_PTYSG.clear()
+    LoadAllProfiles()
 
 
-ui_CRT.PSHBTN_SYSG.clicked.connect(SelectSaveGame)
-ui_CRT.PSHBTN_SYG.clicked.connect(SelectFolderGame)
+
+
+ui_CRT.BTNBOX.accepted.connect(SaveProfile)
+ui_CRT.PSHBTN_SYSG.clicked.connect(lambda: ui_CRT.LNEdit_PTYSG.setText(QtWidgets.QFileDialog.getExistingDirectory()))
+ui_CRT.PSHBTN_SYG.clicked.connect(lambda: ui_CRT.LNEdit_PTYG.setText(QtWidgets.QFileDialog.getExistingDirectory()))
 ui_main.PSHBTN_Create.clicked.connect(CRT.exec)
 ui_main.PSHBTN_Load.clicked.connect(LoadAllProfiles)
 ui_main.ACT_CreateDBF.changed.connect(CreateDBFile)

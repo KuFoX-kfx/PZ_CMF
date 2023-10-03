@@ -30,7 +30,7 @@ class DBM:
             return 0
 
             
-    def GetProfilesName(self):
+    def GetProfilesName(self, Column):
         try:
             with self.connection:
                 self.cursor.execute("SELECT * from profiles")
@@ -38,14 +38,16 @@ class DBM:
                 #log.write("Всего строк:  ", len(records))
                 temp = []
                 for row in records:
-                    temp.append(row[0])
+                    temp.append(row[Column])
                 return temp
         except Error as er:
             print(er)
         except Exception as ex:
             print(ex)
 
-    #def CreateProfile(self)
+    def CreateProfile(self, Name, PGF, PSF):
+        with self.connection:
+            return self.cursor.execute("INSERT INTO `profiles` (`Name`, `PGF`, `PSF`) values(?,?,?)", (Name, PGF, PSF))
 
 
 
@@ -53,11 +55,12 @@ class DBM:
     def CreateDBProfiles(self):
         with self.connection:
             self.cursor.execute(
-    """CREATE TABLE profiles (
+"""
+    CREATE TABLE profiles (
     ID   INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name STRING,
+    Name STRING  UNIQUE ON CONFLICT REPLACE,
     PGF  STRING,
     PSF  STRING
     );
-    """)
+""")
 

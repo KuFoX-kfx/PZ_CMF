@@ -332,6 +332,9 @@
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="title">
      <string>Settings</string>
     </property>
@@ -350,6 +353,9 @@
      <addaction name="ACT_RGDT_MSOYS"/>
     </widget>
     <widget class="QMenu" name="Menu_lang">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="title">
       <string>Language</string>
      </property>
@@ -357,6 +363,9 @@
      <addaction name="ACT_RU"/>
     </widget>
     <widget class="QMenu" name="Menu_Files">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="title">
       <string>Files</string>
      </property>
@@ -365,15 +374,30 @@
        <string>DataBase File</string>
       </property>
       <addaction name="ACT_CreateDBF"/>
+      <addaction name="ACT_PatchToFileDBF"/>
      </widget>
      <widget class="QMenu" name="Menu_CF">
       <property name="title">
        <string>Config File</string>
       </property>
       <addaction name="ACT_CreateCF"/>
+      <addaction name="ACT_PatchToFileCF"/>
      </widget>
      <addaction name="Menu_DBF"/>
      <addaction name="Menu_CF"/>
+    </widget>
+    <widget class="QMenu" name="menuSettings_2">
+     <property name="title">
+      <string>Settings</string>
+     </property>
+     <widget class="QMenu" name="menuSorting_by">
+      <property name="title">
+       <string>Sorting by</string>
+      </property>
+      <addaction name="actionName"/>
+      <addaction name="actionID"/>
+     </widget>
+     <addaction name="menuSorting_by"/>
     </widget>
     <addaction name="Menu_lang"/>
     <addaction name="separator"/>
@@ -382,6 +406,7 @@
     <addaction name="separator"/>
     <addaction name="Menu_Files"/>
     <addaction name="separator"/>
+    <addaction name="menuSettings_2"/>
    </widget>
    <addaction name="menuSettings"/>
   </widget>
@@ -450,6 +475,26 @@
   <action name="ACT_CreateCF">
    <property name="text">
     <string>Create</string>
+   </property>
+  </action>
+  <action name="ACT_PatchToFileDBF">
+   <property name="text">
+    <string>Patch to file</string>
+   </property>
+  </action>
+  <action name="ACT_PatchToFileCF">
+   <property name="text">
+    <string>Patch to file</string>
+   </property>
+  </action>
+  <action name="actionName">
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </action>
+  <action name="actionID">
+   <property name="text">
+    <string>ID</string>
    </property>
   </action>
  </widget>
