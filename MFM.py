@@ -1,9 +1,9 @@
 import os
 
-#ConfigFile = open("Settings.cfg", "w+")
 class MFM:
 
-    def CreateConfigFile():
-        ConfigFile = open("Settings.cfg", "w+")
+    def LoadMap(self, PTS, PTG):
+        os.replace(PTS + str("""/"""))
+        
     
     

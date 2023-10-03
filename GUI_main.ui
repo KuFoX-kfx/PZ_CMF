@@ -373,15 +373,15 @@
       <property name="title">
        <string>DataBase File</string>
       </property>
-      <addaction name="ACT_CreateDBF"/>
-      <addaction name="ACT_PatchToFileDBF"/>
+      <addaction name="ACT__DBF_Create"/>
+      <addaction name="ACT_DBF_PatchToFile"/>
      </widget>
      <widget class="QMenu" name="Menu_CF">
       <property name="title">
        <string>Config File</string>
       </property>
-      <addaction name="ACT_CreateCF"/>
-      <addaction name="ACT_PatchToFileCF"/>
+      <addaction name="ACT_CF_Create"/>
+      <addaction name="ACT_CF_PatchToFile"/>
      </widget>
      <addaction name="Menu_DBF"/>
      <addaction name="Menu_CF"/>
@@ -394,8 +394,9 @@
       <property name="title">
        <string>Sorting by</string>
       </property>
-      <addaction name="actionName"/>
-      <addaction name="actionID"/>
+      <addaction name="ACT_SB_Name"/>
+      <addaction name="ACT_SB_NameFolder"/>
+      <addaction name="ACT_SB_ID"/>
      </widget>
      <addaction name="menuSorting_by"/>
     </widget>
@@ -467,34 +468,39 @@
     <string>RU_Русский</string>
    </property>
   </action>
-  <action name="ACT_CreateDBF">
+  <action name="ACT__DBF_Create">
    <property name="text">
     <string>Create</string>
    </property>
   </action>
-  <action name="ACT_CreateCF">
+  <action name="ACT_CF_Create">
    <property name="text">
     <string>Create</string>
    </property>
   </action>
-  <action name="ACT_PatchToFileDBF">
+  <action name="ACT_DBF_PatchToFile">
    <property name="text">
     <string>Patch to file</string>
    </property>
   </action>
-  <action name="ACT_PatchToFileCF">
+  <action name="ACT_CF_PatchToFile">
    <property name="text">
     <string>Patch to file</string>
    </property>
   </action>
-  <action name="actionName">
+  <action name="ACT_SB_Name">
    <property name="text">
-    <string>Name</string>
+    <string>Name Profile</string>
    </property>
   </action>
-  <action name="actionID">
+  <action name="ACT_SB_ID">
    <property name="text">
     <string>ID</string>
+   </property>
+  </action>
+  <action name="ACT_SB_NameFolder">
+   <property name="text">
+    <string>Name Folder</string>
    </property>
   </action>
  </widget>

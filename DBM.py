@@ -47,12 +47,12 @@ class DBM:
 
     def CreateProfile(self, Name, PGF, PSF):
         with self.connection:
-            return self.cursor.execute("INSERT INTO `profiles` (`Name`, `PGF`, `PSF`) values(?,?,?)", (Name, PGF, PSF))
+            return self.cursor.execute("INSERT INTO `profiles` (`NameProfile`, `PGF`, `PSF`) values(?,?,?)", (Name, PGF, PSF))
 
-    def DeleteProfile(self, Name):
+    def DeleteProfile(self, NameProfile):
         try:
             with self.connection:
-                self.cursor.execute("delete from profiles where Name = ?", (Name,))
+                self.cursor.execute("delete from profiles where NameProfile = ?", (NameProfile,))
         except Error as er:
             print(er)
         except Exception as ex:
@@ -64,12 +64,13 @@ class DBM:
 
     def CreateDBProfiles(self):
         with self.connection:
-            self.cursor.execute(
-"""CREATE TABLE IF NOT EXISTS profiles (
-ID   INTEGER PRIMARY KEY AUTOINCREMENT,
-Name STRING UNIQUE ON CONFLICT REPLACE,
-PGF  STRING,
-PSF  STRING
+            self.cursor.execute("""
+    CREATE TABLE profiles (
+    ID          INTEGER PRIMARY KEY AUTOINCREMENT,
+    NameProfile STRING  UNIQUE ON CONFLICT REPLACE,
+    NameFolder,
+    PGF         STRING,
+    PSF         STRING
 );
 """)
         #self.connection.commit()
