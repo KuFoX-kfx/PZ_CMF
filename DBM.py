@@ -68,9 +68,7 @@ class DBM:
     CREATE TABLE profiles (
     ID          INTEGER PRIMARY KEY AUTOINCREMENT,
     NameProfile STRING  UNIQUE ON CONFLICT REPLACE,
-    NameFolder,
-    PGF         STRING,
-    PSF         STRING
+    NameFolder  STRING
 );
 """)
         #self.connection.commit()
