@@ -84,9 +84,11 @@ class DBM:
     NameProfile STRING  UNIQUE ON CONFLICT REPLACE,
     NameFolder  STRING
 );
+""")
+            self.cursor.execute("""
     CREATE TABLE settings (
     Language STRING,
     GSF      STRING,
-    BF
+    BF       STRING
 );
 """)

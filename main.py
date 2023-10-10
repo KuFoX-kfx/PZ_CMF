@@ -57,6 +57,8 @@ def CreateDBFile():
         msgBox.exec()
 
 def Settings():
+    STNGList = []
+    
     STN.exec()
 
 def check():
@@ -78,13 +80,12 @@ def DeleteProfile():
 
 def SaveProfile():
     try:
-        if ui_CRT.LNEdit_PN.displayText() != "" and ui_CRT.LNEdit_PTYG.displayText != "" and ui_CRT.LNEdit_PTYSG.displayText() != "":
-            db.CreateProfile(ui_CRT.LNEdit_PN.displayText(), ui_CRT.LNEdit_PTYG.displayText(), ui_CRT.LNEdit_PTYSG.displayText())
+        if ui_CRT.LNEdit_PN.displayText() != "" and ui_CRT.LNEdit_NSF.displayText() != "":
+            db.CreateProfile(ui_CRT.LNEdit_PN.displayText(), ui_CRT.LNEdit_NSF.displayText())
             msgBox.setText("Successful Save!")
             msgBox.exec()
         ui_CRT.LNEdit_PN.clear()
-        ui_CRT.LNEdit_PTYG.clear()
-        ui_CRT.LNEdit_PTYSG.clear()
+        ui_CRT.LNEdit_NSF.clear()
         LoadAllProfiles()
     except:
         msgBox.setText("Error when save profile!!!")
