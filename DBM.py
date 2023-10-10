@@ -21,6 +21,7 @@ class DBM:
         try:
             with self.connection:
                 self.cursor.execute("SELECT * from profiles")
+                self.cursor.execute("SELECT * from settings")
             return 1
         except Error as er:
             print(er)
@@ -30,29 +31,42 @@ class DBM:
             return 0
 
             
-    def GetProfilesName(self, Column):
+    def GetProfilesName(self, type):
         try:
             with self.connection:
                 self.cursor.execute("SELECT * from profiles")
                 records = self.cursor.fetchall()
                 #log.write("Всего строк:  ", len(records))
                 temp = []
-                for row in records:
-                    temp.append(row[Column])
-                return temp
+                if type == "NP":
+                    for row in records:
+                        temp.append(row[1])
+                    return temp
+                if type == "NF":
+                    for row in records:
+                        temp.append(row[2])
+                    return temp
+                else:
+                    return 400
         except Error as er:
             print(er)
         except Exception as ex:
             print(ex)
 
-    def CreateProfile(self, Name, PGF, PSF):
+    def CreateProfile(self, Name, NF):
         with self.connection:
-            return self.cursor.execute("INSERT INTO `profiles` (`NameProfile`, `PGF`, `PSF`) values(?,?,?)", (Name, PGF, PSF))
+            return self.cursor.execute("INSERT INTO `profiles` (`NameProfile`, `NameFolder`) values(?,?)", (Name, NF))
 
-    def DeleteProfile(self, NameProfile):
+    def DeleteProfile(self, Name, type):
         try:
-            with self.connection:
-                self.cursor.execute("delete from profiles where NameProfile = ?", (NameProfile,))
+            if type == "NP":
+                with self.connection:
+                    self.cursor.execute("delete from profiles where NameProfile = ?", (Name,))
+            if type == "NF":
+                with self.connection:
+                    self.cursor.execute("delete from profiles where NameFolder = ?", (Name,))
+            else:
+                return 400
         except Error as er:
             print(er)
         except Exception as ex:
@@ -70,12 +84,9 @@ class DBM:
     NameProfile STRING  UNIQUE ON CONFLICT REPLACE,
     NameFolder  STRING
 );
+    CREATE TABLE settings (
+    Language STRING,
+    GSF      STRING,
+    BF
+);
 """)
-        #self.connection.commit()
-        #except Error as er:
-        #    print("CreateDBProfiles" + str(er))
-        #except Exception as ex:
-        #    print("CreateDBProfiles" + str(ex))
-            
-        
-

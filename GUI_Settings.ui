@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>DLG_Settings</class>
+ <widget class="QDialog" name="DLG_Settings">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>PZ-CMF_Settings</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="LBL">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -29,7 +29,7 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="CBox_Language">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -49,7 +49,7 @@
     </property>
    </item>
   </widget>
-  <widget class="Line" name="line">
+  <widget class="Line" name="LN">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -65,7 +65,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="Line" name="line_2">
+  <widget class="Line" name="LN_2">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -81,7 +81,7 @@
     <enum>Qt::Vertical</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="LBL_2">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -97,7 +97,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_2">
+  <widget class="QComboBox" name="CBox_DP">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -117,7 +117,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="PSHBTN_SaveSettings">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -130,7 +130,7 @@
     <string>Save Settings</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="LBL_3">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -146,7 +146,7 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox">
+  <widget class="QSpinBox" name="SPNBox_NMB">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -177,7 +177,7 @@
     <enum>QAbstractSpinBox::DefaultStepType</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="LBL_4">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -193,7 +193,7 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="LBL_5">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -209,7 +209,7 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="LNEdit_GSF">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -219,7 +219,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="LNEdit_BF">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -229,7 +229,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="PSHBTN_SGSF">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -242,7 +242,7 @@
     <string>Select</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="PSHBBTN_SBF">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -255,7 +255,7 @@
     <string>Select</string>
    </property>
   </widget>
-  <widget class="Line" name="line_8">
+  <widget class="Line" name="LN_4">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -271,7 +271,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="Line" name="line_6">
+  <widget class="Line" name="LN_3">
    <property name="geometry">
     <rect>
      <x>440</x>
@@ -287,23 +287,23 @@
     <enum>Qt::Vertical</enum>
    </property>
   </widget>
-  <zorder>line</zorder>
-  <zorder>label</zorder>
-  <zorder>comboBox</zorder>
-  <zorder>line_2</zorder>
-  <zorder>label_5</zorder>
-  <zorder>comboBox_2</zorder>
-  <zorder>pushButton_5</zorder>
-  <zorder>label_6</zorder>
-  <zorder>spinBox</zorder>
-  <zorder>label_7</zorder>
-  <zorder>label_8</zorder>
-  <zorder>lineEdit</zorder>
-  <zorder>lineEdit_2</zorder>
-  <zorder>pushButton_6</zorder>
-  <zorder>pushButton_7</zorder>
-  <zorder>line_6</zorder>
-  <zorder>line_8</zorder>
+  <zorder>LN</zorder>
+  <zorder>LBL</zorder>
+  <zorder>CBox_Language</zorder>
+  <zorder>LN_2</zorder>
+  <zorder>LBL_2</zorder>
+  <zorder>CBox_DP</zorder>
+  <zorder>PSHBTN_SaveSettings</zorder>
+  <zorder>LBL_3</zorder>
+  <zorder>SPNBox_NMB</zorder>
+  <zorder>LBL_4</zorder>
+  <zorder>LBL_5</zorder>
+  <zorder>LNEdit_GSF</zorder>
+  <zorder>LNEdit_BF</zorder>
+  <zorder>PSHBTN_SGSF</zorder>
+  <zorder>PSHBBTN_SBF</zorder>
+  <zorder>LN_3</zorder>
+  <zorder>LN_4</zorder>
  </widget>
  <resources/>
  <connections/>

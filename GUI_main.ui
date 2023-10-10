@@ -266,7 +266,7 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="PSHBTN_Buckup">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -321,7 +321,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="CBox_Buckup">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -331,7 +331,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="PSHBTN_Load_2">
+   <widget class="QPushButton" name="PSHBTN_Settings">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -357,14 +357,14 @@
    <zorder>PSHBTN_Load</zorder>
    <zorder>PSHBTN_LoadMap</zorder>
    <zorder>LBL</zorder>
-   <zorder>pushButton</zorder>
+   <zorder>PSHBTN_Buckup</zorder>
    <zorder>LBL_2</zorder>
    <zorder>LN_2</zorder>
    <zorder>LN_6</zorder>
    <zorder>CMBox_Profile</zorder>
-   <zorder>comboBox</zorder>
+   <zorder>CBox_Buckup</zorder>
    <zorder>LN</zorder>
-   <zorder>PSHBTN_Load_2</zorder>
+   <zorder>PSHBTN_Settings</zorder>
   </widget>
   <action name="ACT_DBFile">
    <property name="checkable">
