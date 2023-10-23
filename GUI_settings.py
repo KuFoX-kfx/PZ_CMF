@@ -119,8 +119,8 @@ class Ui_DLG_Settings(object):
         _translate = QtCore.QCoreApplication.translate
         DLG_Settings.setWindowTitle(_translate("DLG_Settings", "PZ-CMF_Settings"))
         self.LBL.setText(_translate("DLG_Settings", "Language:"))
-        self.CBox_Language.setItemText(0, _translate("DLG_Settings", "En_English"))
-        self.CBox_Language.setItemText(1, _translate("DLG_Settings", "Ru_Русский"))
+        self.CBox_Language.setItemText(0, _translate("DLG_Settings", "EN"))
+        self.CBox_Language.setItemText(1, _translate("DLG_Settings", "RU"))
         self.LBL_2.setText(_translate("DLG_Settings", "Display Profiles Name by:"))
         self.CBox_DP.setItemText(0, _translate("DLG_Settings", "Name"))
         self.CBox_DP.setItemText(1, _translate("DLG_Settings", "Folder"))

@@ -10,7 +10,9 @@ from GUI_main import Ui_Main
 from GUI_create import Ui_DLG_Create
 from GUI_settings import Ui_DLG_Settings
 from DBM import DBM
+from CFM import CFM
 db = DBM('Profiles.db')
+CF = CFM('CFG.cfg')
 
 app = QtWidgets.QApplication(sys.argv)
 MAIN = QtWidgets.QMainWindow()
@@ -34,8 +36,7 @@ msgBox.setWindowTitle("PZ-CMF")
 msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
 
 DBS = 0
-CFS = 0
-OFS = 0
+
 
 
 
@@ -57,33 +58,32 @@ def CreateDBFile():
         msgBox.exec()
 
 def Settings():
-    STNGList = []
-    
+    STNList = db.GetSettings()
+    print(STNList)
+    ui_STN.CBox_Language.setCurrentText(str(STNList[0]))
+    ui_STN.LNEdit_GSF.setText(str(STNList[1]))
+    ui_STN.LNEdit_BF.setText(str(STNList[2]))
     STN.exec()
 
 def check():
     global DBS
-    global CFS
-    global OFS
     DBS = db.CheckConnect()
     ui_main.PRGRSBR_DBF.setValue(DBS)
     if DBS == 0:
-        db.CreateDBProfiles()
+        db.CreateDBFile()
 
 def DeleteProfile():
     ret = msgBox.exec_()
     if ret == QMessageBox.No:
         pass
     elif ret == QMessageBox.Yes:
-        db.DeleteProfile(ui_main.CMBox_Profile.currentText())
+        db.DeleteProfile(ui_main.CMBox_Profile.currentText(), "NP")
         LoadAllProfiles()
 
 def SaveProfile():
     try:
         if ui_CRT.LNEdit_PN.displayText() != "" and ui_CRT.LNEdit_NSF.displayText() != "":
             db.CreateProfile(ui_CRT.LNEdit_PN.displayText(), ui_CRT.LNEdit_NSF.displayText())
-            msgBox.setText("Successful Save!")
-            msgBox.exec()
         ui_CRT.LNEdit_PN.clear()
         ui_CRT.LNEdit_NSF.clear()
         LoadAllProfiles()
@@ -91,8 +91,12 @@ def SaveProfile():
         msgBox.setText("Error when save profile!!!")
         msgBox.exec()
 
+def SaveSettings():
+    db.SaveSettings(ui_STN.CBox_Language.currentText(), ui_STN.LNEdit_GSF.displayText(), ui_STN.LNEdit_BF.displayText())
+    
+    
 
-
+ui_STN.PSHBTN_SaveSettings.clicked.connect(SaveSettings)
 ui_main.PSHBTN_Delete.clicked.connect(DeleteProfile)
 ui_CRT.BTNBOX.accepted.connect(SaveProfile)
 ui_STN.PSHBTN_SGSF.clicked.connect(lambda: ui_STN.LNEdit_GSF.setText(QtWidgets.QFileDialog.getExistingDirectory()))

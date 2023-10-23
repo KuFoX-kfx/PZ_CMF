@@ -76,7 +76,7 @@ class DBM:
 
 
 
-    def CreateDBProfiles(self):
+    def CreateDBFile(self):
         with self.connection:
             self.cursor.execute("""
     CREATE TABLE profiles (
@@ -92,3 +92,20 @@ class DBM:
     BF       STRING
 );
 """)
+            
+            
+            
+            
+            
+    # def SaveSettings(self, Lang, GSF, BF):
+    #     with self.connection:
+    #         try:
+    #             self.cursor.execute("SELECT * from settings")
+    #             exist = self.cursor.fetchone()
+    #             if(exist is None):
+    #                 return self.cursor.execute("INSERT INTO `settings` (`Language`, `GSF`, `BF`) values(?,?,?)", (Lang, GSF, BF))
+    #             else:
+    #                 self.cursor.execute("delete from settings")
+    #                 return self.cursor.execute("INSERT INTO `settings` (`Language`, `GSF`, `BF`) values(?,?,?)", (Lang, GSF, BF))
+    #         except:
+    #             print("Error")

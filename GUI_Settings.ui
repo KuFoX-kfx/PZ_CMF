@@ -40,12 +40,12 @@
    </property>
    <item>
     <property name="text">
-     <string>En_English</string>
+     <string>EN</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Ru_Русский</string>
+     <string>RU</string>
     </property>
    </item>
   </widget>
